@@ -1,0 +1,32 @@
+{
+  "frameRate": 25,
+  "clockMode": "internal",
+  "devices": [
+    {
+      "type": "avolites",
+      "host": "192.168.1.100",
+      "port": 7000,
+      "enabled": false
+    },
+    {
+      "type": "propresenter",
+      "host": "192.168.1.101",
+      "port": 1025,
+      "enabled": false
+    },
+    {
+      "type": "atem",
+      "host": "192.168.1.102",
+      "port": 9910,
+      "enabled": false
+    },
+    {
+      "type": "gld",
+      "host": "192.168.1.103",
+      "port": 51325,
+      "enabled": false
+    }
+  ],
+  "httpPort": 3000,
+  "wsPort": 3001
+}

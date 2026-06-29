@@ -1,0 +1,13 @@
+[Unit]
+Description=Timecode OS Backend
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/node /opt/timecode/backend/dist/index.js
+WorkingDirectory=/opt/timecode/backend
+Restart=always
+Environment=NODE_ENV=production
+User=root
+
+[Install]
+WantedBy=multi-user.target

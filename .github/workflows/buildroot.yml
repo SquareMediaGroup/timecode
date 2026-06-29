@@ -1,0 +1,49 @@
+name: Build Timecode OS
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Install Buildroot Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y sed make binutils build-essential gcc g++ bash patch gzip bzip2 perl tar cpio unzip rsync file bc wget cvs git mercurial subversion
+
+      - name: Cache Downloaded Tarballs
+        uses: actions/cache@v4
+        with:
+          path: ${{ github.workspace }}/dl-cache
+          key: buildroot-dl-${{ hashFiles('buildroot-ext/configs/timecode_pi4_defconfig') }}
+          restore-keys: |
+            buildroot-dl-
+
+      - name: Clone Buildroot
+        run: |
+          git clone --depth 1 -b 2024.02.1 https://gitlab.com/buildroot.org/buildroot.git buildroot
+
+      - name: Configure Buildroot
+        run: |
+          mkdir -p ${{ github.workspace }}/dl-cache
+          cd buildroot
+          make BR2_EXTERNAL=../buildroot-ext timecode_pi4_defconfig
+          echo "BR2_DL_DIR=\"${{ github.workspace }}/dl-cache\"" >> .config
+
+      - name: Build OS Image
+        run: |
+          cd buildroot
+          make
+
+      - name: Upload SD Card Image
+        uses: actions/upload-artifact@v4
+        with:
+          name: timecode-os-sdcard
+          path: buildroot/output/images/sdcard.img

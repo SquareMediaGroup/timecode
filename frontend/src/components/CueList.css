@@ -1,0 +1,195 @@
+.cue-list {
+  flex: 1;
+  overflow-y: auto;
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
+  transition: background-color var(--transition-normal);
+}
+
+/* -- Table ---------------------------------------------------------------- */
+
+.cue-list__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8125rem;
+}
+
+.cue-list__table th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: var(--bg-elevated);
+  border-bottom: 1px solid var(--border-color);
+  padding: 10px 12px;
+  text-align: left;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-tertiary);
+  user-select: none;
+}
+
+.cue-list__table th:first-child {
+  padding-left: 20px;
+  width: 48px;
+}
+
+.cue-list__table th:last-child {
+  padding-right: 20px;
+  text-align: right;
+  width: 80px;
+}
+
+/* -- Rows ----------------------------------------------------------------- */
+
+.cue-list__row {
+  border-bottom: 1px solid var(--border-subtle);
+  transition: background-color var(--transition-fast);
+}
+
+.cue-list__row td {
+  padding: 10px 12px;
+  vertical-align: middle;
+}
+
+.cue-list__row td:first-child {
+  padding-left: 20px;
+}
+
+.cue-list__row td:last-child {
+  padding-right: 20px;
+  text-align: right;
+}
+
+/* -- Cue states ----------------------------------------------------------- */
+
+.cue-list__row--passed {
+  background: var(--cue-passed-bg);
+  color: var(--cue-passed-text);
+}
+
+.cue-list__row--active {
+  background: var(--cue-active-bg);
+  color: var(--cue-active-text);
+  border-left: 3px solid var(--cue-active-border);
+}
+
+.cue-list__row--active td:first-child {
+  padding-left: 17px; /* 20 - 3px border */
+}
+
+.cue-list__row--upcoming {
+  background: var(--cue-upcoming-bg);
+  color: var(--cue-upcoming-text);
+}
+
+/* -- Scene divider -------------------------------------------------------- */
+
+.cue-list__scene-divider {
+  background: var(--scene-bg);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.cue-list__scene-divider td {
+  padding: 6px 20px;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--scene-text);
+}
+
+/* -- Cue number ----------------------------------------------------------- */
+
+.cue-list__number {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-tertiary);
+}
+
+.cue-list__row--active .cue-list__number {
+  color: var(--accent-primary);
+}
+
+/* -- Timecode cell -------------------------------------------------------- */
+
+.cue-list__timecode {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+}
+
+/* -- Target icons --------------------------------------------------------- */
+
+.cue-list__targets {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cue-list__target-icon {
+  font-size: 16px;
+  color: var(--text-tertiary);
+  opacity: 0.7;
+}
+
+.cue-list__target-icon--enabled {
+  color: var(--accent-primary);
+  opacity: 1;
+}
+
+.cue-list__row--passed .cue-list__target-icon--enabled {
+  color: var(--cue-passed-text);
+}
+
+/* -- Action buttons ------------------------------------------------------- */
+
+.cue-list__actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  justify-content: flex-end;
+}
+
+.cue-list__action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.cue-list__action-btn:hover {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.cue-list__action-btn .material-symbols-outlined {
+  font-size: 16px;
+}
+
+/* -- Empty state ---------------------------------------------------------- */
+
+.cue-list__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 20px;
+  color: var(--text-tertiary);
+  font-size: 0.875rem;
+}
+
+.cue-list__empty .material-symbols-outlined {
+  font-size: 32px;
+  margin-bottom: 8px;
+  opacity: 0.5;
+}

@@ -1,0 +1,229 @@
+.cue-editor__overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: var(--bg-overlay);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: flex-end;
+  animation: cue-editor-fade-in 200ms ease;
+}
+
+@keyframes cue-editor-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.cue-editor__panel {
+  width: 480px;
+  max-width: 100%;
+  height: 100%;
+  background: var(--bg-secondary);
+  border-left: 1px solid var(--border-color);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  animation: cue-editor-slide-in 250ms ease;
+}
+
+@keyframes cue-editor-slide-in {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+/* -- Header --------------------------------------------------------------- */
+
+.cue-editor__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border-color);
+  flex-shrink: 0;
+}
+
+.cue-editor__title {
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+.cue-editor__close-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.cue-editor__close-btn:hover {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.cue-editor__close-btn .material-symbols-outlined {
+  font-size: 18px;
+}
+
+/* -- Body ----------------------------------------------------------------- */
+
+.cue-editor__body {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* -- Field groups --------------------------------------------------------- */
+
+.cue-editor__field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cue-editor__field-row {
+  display: flex;
+  gap: 12px;
+}
+
+.cue-editor__field-row > .cue-editor__field-group {
+  flex: 1;
+}
+
+.cue-editor__label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-tertiary);
+}
+
+/* -- Checkbox field -------------------------------------------------------- */
+
+.cue-editor__checkbox-field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cue-editor__checkbox-field input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--accent-primary);
+  cursor: pointer;
+}
+
+.cue-editor__checkbox-field label {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+/* -- Device sections ------------------------------------------------------ */
+
+.cue-editor__device-section {
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.cue-editor__device-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  background: var(--bg-primary);
+  cursor: pointer;
+  user-select: none;
+  transition: background-color var(--transition-fast);
+}
+
+.cue-editor__device-header:hover {
+  background: var(--bg-elevated);
+}
+
+.cue-editor__device-header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+}
+
+.cue-editor__device-header-left .material-symbols-outlined {
+  font-size: 18px;
+  color: var(--text-tertiary);
+}
+
+.cue-editor__device-toggle {
+  position: relative;
+  width: 36px;
+  height: 20px;
+  background: var(--border-color);
+  border-radius: var(--radius-full);
+  border: none;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+  padding: 0;
+}
+
+.cue-editor__device-toggle--on {
+  background: var(--accent-primary);
+}
+
+.cue-editor__device-toggle::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: var(--radius-full);
+  background: white;
+  transition: transform var(--transition-fast);
+}
+
+.cue-editor__device-toggle--on::after {
+  transform: translateX(16px);
+}
+
+.cue-editor__device-body {
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-top: 1px solid var(--border-color);
+}
+
+.cue-editor__device-chevron {
+  color: var(--text-tertiary);
+  transition: transform var(--transition-fast);
+}
+
+.cue-editor__device-chevron--open {
+  transform: rotate(180deg);
+}
+
+.cue-editor__device-chevron .material-symbols-outlined {
+  font-size: 18px;
+}
+
+/* -- Footer --------------------------------------------------------------- */
+
+.cue-editor__footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 16px 20px;
+  border-top: 1px solid var(--border-color);
+  flex-shrink: 0;
+}

@@ -1,0 +1,74 @@
+.transport-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: var(--transport-bg);
+  border-top: 1px solid var(--transport-border);
+  flex-shrink: 0;
+  transition: background-color var(--transition-normal), border-color var(--transition-normal);
+}
+
+.transport-controls--hidden {
+  display: none;
+}
+
+/* -- Transport button ----------------------------------------------------- */
+
+.transport-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  background: var(--bg-elevated);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.transport-btn .material-symbols-outlined {
+  font-size: 24px;
+}
+
+.transport-btn:hover {
+  color: var(--text-primary);
+  border-color: var(--text-tertiary);
+  background: var(--bg-primary);
+}
+
+.transport-btn:active {
+  transform: scale(0.95);
+}
+
+/* -- Active state (playing / paused) -------------------------------------- */
+
+.transport-btn--active {
+  background: var(--accent-primary);
+  border-color: var(--accent-primary);
+  color: var(--text-inverse);
+}
+
+.transport-btn--active:hover {
+  background: var(--accent-primary-hover);
+  border-color: var(--accent-primary-hover);
+  color: var(--text-inverse);
+}
+
+/* -- Stop (error-tint when stopped) --------------------------------------- */
+
+.transport-btn--stop-active {
+  background: var(--accent-error);
+  border-color: var(--accent-error);
+  color: var(--text-inverse);
+}
+
+.transport-btn--stop-active:hover {
+  background: var(--accent-error);
+  border-color: var(--accent-error);
+  color: var(--text-inverse);
+  opacity: 0.9;
+}

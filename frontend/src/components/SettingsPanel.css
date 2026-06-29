@@ -1,0 +1,217 @@
+.settings-panel__overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: var(--bg-overlay);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: flex-end;
+  animation: settings-fade-in 200ms ease;
+}
+
+@keyframes settings-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.settings-panel {
+  width: 420px;
+  max-width: 100%;
+  height: 100%;
+  background: var(--bg-secondary);
+  border-left: 1px solid var(--border-color);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  animation: settings-slide-in 250ms ease;
+}
+
+@keyframes settings-slide-in {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+/* -- Header --------------------------------------------------------------- */
+
+.settings-panel__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border-color);
+  flex-shrink: 0;
+}
+
+.settings-panel__title {
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+.settings-panel__close-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.settings-panel__close-btn:hover {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.settings-panel__close-btn .material-symbols-outlined {
+  font-size: 18px;
+}
+
+/* -- Body ----------------------------------------------------------------- */
+
+.settings-panel__body {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* -- Section -------------------------------------------------------------- */
+
+.settings-panel__section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.settings-panel__section-title {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-tertiary);
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+/* -- Device card ---------------------------------------------------------- */
+
+.settings-panel__device-card {
+  padding: 12px 16px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.settings-panel__device-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.settings-panel__device-card-label {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.settings-panel__device-card-label .material-symbols-outlined {
+  font-size: 18px;
+  color: var(--text-tertiary);
+}
+
+.settings-panel__device-fields {
+  display: flex;
+  gap: 10px;
+}
+
+.settings-panel__device-fields > .settings-panel__field-group {
+  flex: 1;
+}
+
+.settings-panel__device-fields > .settings-panel__field-group--port {
+  flex: 0 0 90px;
+}
+
+/* -- Field group ---------------------------------------------------------- */
+
+.settings-panel__field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.settings-panel__label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-tertiary);
+}
+
+/* -- Toggle --------------------------------------------------------------- */
+
+.settings-panel__toggle {
+  position: relative;
+  width: 36px;
+  height: 20px;
+  background: var(--border-color);
+  border-radius: var(--radius-full);
+  border: none;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.settings-panel__toggle--on {
+  background: var(--accent-primary);
+}
+
+.settings-panel__toggle::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: var(--radius-full);
+  background: white;
+  transition: transform var(--transition-fast);
+}
+
+.settings-panel__toggle--on::after {
+  transform: translateX(16px);
+}
+
+/* -- General settings ----------------------------------------------------- */
+
+.settings-panel__general-row {
+  display: flex;
+  gap: 12px;
+}
+
+.settings-panel__general-row > .settings-panel__field-group {
+  flex: 1;
+}
+
+/* -- Footer --------------------------------------------------------------- */
+
+.settings-panel__footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 16px 20px;
+  border-top: 1px solid var(--border-color);
+  flex-shrink: 0;
+}

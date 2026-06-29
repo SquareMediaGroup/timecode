@@ -1,0 +1,12 @@
+[Unit]
+Description=Disable Wi-Fi Power Save
+After=network.target
+Requires=sys-subsystem-net-devices-wlan0.device
+After=sys-subsystem-net-devices-wlan0.device
+
+[Service]
+Type=oneshot
+ExecStart=/usr/sbin/iw dev wlan0 set power_save off
+
+[Install]
+WantedBy=multi-user.target
