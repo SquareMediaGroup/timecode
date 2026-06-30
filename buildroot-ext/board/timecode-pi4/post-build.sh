@@ -9,9 +9,9 @@ mkdir -p "$APP_TARGET_DIR"
 
 # Copy backend and frontend into rootfs
 echo "Copying backend..."
-cp -r "${BR2_EXTERNAL_TIMECODE_OS_PATH}/../../backend" "$APP_TARGET_DIR/"
+cp -r "${BR2_EXTERNAL_TIMECODE_OS_PATH}/../backend" "$APP_TARGET_DIR/"
 echo "Copying frontend..."
-cp -r "${BR2_EXTERNAL_TIMECODE_OS_PATH}/../../frontend" "$APP_TARGET_DIR/"
+cp -r "${BR2_EXTERNAL_TIMECODE_OS_PATH}/../frontend" "$APP_TARGET_DIR/"
 
 # Create symlinks to enable our systemd services on boot
 WANTS_DIR="${TARGET_DIR}/etc/systemd/system/multi-user.target.wants"
